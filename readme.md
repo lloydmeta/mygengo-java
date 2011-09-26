@@ -8,7 +8,7 @@ jobs. This is a Java interface to make using the API simpler (some would say inc
 
 Dependencies
 ---------------------------------------------------------------------------------------------------------------------------
-The **[JSON in Java](http://json.org/java/)]** package by Douglas Crockford.
+The **[JSON in Java](http://json.org/java/)** package by Douglas Crockford.
 
 
 Example Code
