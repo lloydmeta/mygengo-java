@@ -56,6 +56,7 @@ public class Example
 	    testDetermineTranslationCost();
         testGetServiceLanguages();
         testGetServiceLanguagePairs("de");
+        testPostTranslationJob();
         testPostTranslationJobs();
         testGetTranslationJobs();
         testDeleteTranslationJob();
@@ -135,7 +136,7 @@ public class Example
 	    System.out.println("*** Getting all translation jobs.");
 		JSONObject response = myGengo.getTranslationJobs();
 		System.out.println(response.toString(JSON_INDENT_FACTOR));
-		response = myGengo.getTranslationJobs(Arrays.asList(new Integer[]{44755, 44756}));
+		response = myGengo.getTranslationJobs(Arrays.asList(new Integer[]{47311, 44756}));
 		System.out.println(response.toString(JSON_INDENT_FACTOR));
 	}	
 	
