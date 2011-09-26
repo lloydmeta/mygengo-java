@@ -5,6 +5,12 @@ somewhat tricky problem to solve. **[myGengo](http://mygengo.com/)** is a servic
 (which is often a higher quality than machine translation), and an API to manage sending in work and watching
 jobs. This is a Java interface to make using the API simpler (some would say incredibly easy). 
 
+
+Dependencies
+---------------------------------------------------------------------------------------------------------------------------
+The **[JSON in Java](http://json.org/java/)]** package by Douglas Crockford.
+
+
 Example Code
 ---------------------------------------------------------------------------------------------------------------------------
 
