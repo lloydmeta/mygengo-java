@@ -42,6 +42,6 @@ If you come across any issues, please file them on the **[Github project issue t
 
 Credits & License
 ---------------------------------------------------------------------------------------------------------------------------
-This library is based on the excellent C# interface by **[Saqib Shaikh]()**
+This library is based on the excellent C# interface by Saqib Shaikh
 
 The library itself is licensed under a BSD-style license. See the enclosed LICENSE.txt file for more information.
