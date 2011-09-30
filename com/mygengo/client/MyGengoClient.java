@@ -23,7 +23,6 @@ public class MyGengoClient extends JsonHttpApi
 {
     private static final String STANDARD_BASE_URL = "http://api.mygengo.com/v1.1/";
     private static final String SANDBOX_BASE_URL = "http://api.sandbox.mygengo.com/v1.1/";
-    //private static final String SANDBOX_BASE_URL = "http://api.mygengo.bruce/v1.1/";
 
     /** Strings used to represent TRUE and FALSE in requests */
     public static final String MYGENGO_TRUE = "1";
@@ -273,6 +272,19 @@ public class MyGengoClient extends JsonHttpApi
     {
         String url = baseUrl + "translate/jobs/";
         url += join(ids, ",");
+        return call(url, HttpMethod.GET);
+    }
+    
+    /**
+     * Get translation jobs which were previously submitted as a group
+     * @param groupId The group job number for these jobs.
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    public JSONObject getGroupJobs(int groupId) throws MyGengoException
+    {
+        String url = baseUrl + "translate/jobs/group/";
+        url += groupId;
         return call(url, HttpMethod.GET);
     }
 
