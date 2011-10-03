@@ -28,11 +28,11 @@ import com.mygengo.client.exceptions.ErrorResponseException;
 import com.mygengo.client.exceptions.MyGengoException;
 
 /**
- * The basis of an authenticated API built on JSON over HTTP
+ * The basis of an authenticated API client built on JSON over HTTP
  */
 public class JsonHttpApi
 {
-	public static final String VERSION = "2.0";
+	public static final String CLIENT_VERSION = "2.0";
 	
 	/** Whether authentication is required by default for API method calls. */
 	private static final boolean AUTHENTICATION_REQUIRED_DEFAULT = true;
@@ -381,7 +381,7 @@ public class JsonHttpApi
 			con.setRequestMethod(method.toString());
 			con.setDoInput(true);
 	        con.setUseCaches(false);
-	        con.setRequestProperty("User-Agent", "myGengo Java library v" + VERSION);
+	        con.setRequestProperty("User-Agent", "myGengo Java library v" + CLIENT_VERSION);
 	        con.setRequestProperty("accept", "application/json");
     	}
     	catch (Exception e)

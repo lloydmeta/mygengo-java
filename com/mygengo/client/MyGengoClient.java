@@ -57,7 +57,7 @@ public class MyGengoClient extends JsonHttpApi
      */
     public boolean getUseSandbox()
     {
-        return STANDARD_BASE_URL.equals(baseUrl);
+        return SANDBOX_BASE_URL.equals(baseUrl);
     }
 
     /**
@@ -67,6 +67,15 @@ public class MyGengoClient extends JsonHttpApi
     public void setUseSandbox(boolean use)
     {
         baseUrl = use ? SANDBOX_BASE_URL : STANDARD_BASE_URL;
+    }
+    
+    /**
+     * Set a custom base URL. For development testing purposes only.
+     * @param baseUrl a custom API base URL
+     */
+    public void setBaseUrl(String baseUrl)
+    {
+        this.baseUrl = baseUrl;
     }
 
     /**
@@ -375,7 +384,7 @@ public class MyGengoClient extends JsonHttpApi
     }
 
     /**
-     * Cancel a translation job. It can only be translated if it has not been started by a translator.
+     * Cancel a translation job. It can only be deleted if it has not been started by a translator.
      * @param id the job ID
      * @return the response from the server
      * @throws MyGengoException
@@ -386,6 +395,27 @@ public class MyGengoClient extends JsonHttpApi
         return call(url, HttpMethod.DELETE);
     }
 
+    /**
+     * Cancel translation jobs. They can only be deleted if they have not been started by a translator.
+     * @param ids a list of job IDs to delete
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    public JSONObject deleteTranslationJobs(List<Integer> ids) throws MyGengoException
+    {
+        try
+        {
+            String url = baseUrl + "translate/jobs/";
+            JSONObject data = new JSONObject();
+            data.put("job_ids", ids);
+            return call(url, HttpMethod.DELETE, data);
+        }
+        catch (JSONException x)
+        {
+            throw new MyGengoException(x.getMessage(), x);
+        }
+    }
+    
     /**
      * Get a list of supported languages and their language codes.
      * @return the response from the server
