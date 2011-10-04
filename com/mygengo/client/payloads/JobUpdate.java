@@ -44,6 +44,15 @@ public abstract class JobUpdate extends Payload
     }
     
     /**
+     * Determine whether this update identifies job by job ID or not
+     * @return true if the job is identified by job ID, false if indentified by (lcSrc, lcTgt, bodySrc, tier)
+     */
+    public boolean isIdentifiedByJobId()
+    {
+        return 0 != jobId;
+    }
+    
+    /**
      * Create a JSONObject representing this update
      * @return the JSONObject created
      * @throws MyGengoException

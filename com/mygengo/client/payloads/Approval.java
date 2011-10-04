@@ -50,7 +50,6 @@ public class Approval extends JobUpdate
         JSONObject id = super.toJSONObject();
         try
         {
-            id.put("action", "approve");
             id.put("for_translator", feedbackTranslator);
             id.put("for_mygengo", feedbackMyGengo);
             id.put("public", isFeedbackPublic ? MyGengoClient.MYGENGO_TRUE : MyGengoClient.MYGENGO_FALSE);

@@ -9,11 +9,12 @@ public enum Tier
 	
 	public String toRequestString()
 	{
-	    return toString().toLowerCase();
+	    return super.toString().toLowerCase();
 	}
 	
 	public String toString()
 	{
 	    return toRequestString();
 	}
+	
 };
