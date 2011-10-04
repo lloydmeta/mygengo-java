@@ -5,18 +5,18 @@ import org.json.JSONArray;
 import com.mygengo.client.exceptions.MyGengoException;
 
 /**
- * A collection of translation jobs.
+ * A collection of payload objects.
  */
-public class TranslationJobs
+public class Payloads
 {
-	private JSONArray jobs;
+	private JSONArray arr;
 	
 	/**
 	 * Initialize the collection.
 	 */
-	public TranslationJobs()
+	public Payloads()
 	{
-		jobs = new JSONArray();
+		arr = new JSONArray();
 	}
 	
 	/**
@@ -24,9 +24,9 @@ public class TranslationJobs
 	 * @param job the payload to add
 	 * @throws MyGengoException
 	 */
-	public void add(TranslationJob job) throws MyGengoException
+	public void add(Payload payload) throws MyGengoException
 	{
-		jobs.put(job.toJSONObject());
+		arr.put(payload.toJSONObject());
 	}	
 	
 	/**
@@ -34,7 +34,7 @@ public class TranslationJobs
 	 */
 	public JSONArray toJSONArray()
 	{
-		return jobs;
+		return arr;
 	}
 
 }

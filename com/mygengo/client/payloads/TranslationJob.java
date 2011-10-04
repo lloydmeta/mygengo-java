@@ -10,7 +10,7 @@ import com.mygengo.client.exceptions.MyGengoException;
 /**
  * A translation job payload
  */
-public class TranslationJob
+public class TranslationJob extends Payload
 {
     /** Maximum comment length in bytes. */
 	public static final int MAX_COMMENT_LENGTH = 1024;
