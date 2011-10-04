@@ -12,7 +12,7 @@ import com.mygengo.client.enums.Rating;
 import com.mygengo.client.enums.RejectReason;
 import com.mygengo.client.exceptions.MyGengoException;
 import com.mygengo.client.payloads.TranslationJob;
-import com.mygengo.client.payloads.TranslationJobs;
+import com.mygengo.client.payloads.Payloads;
 
 /**
  * A Java client for the myGengo.com translation API.
@@ -123,13 +123,13 @@ public class MyGengoClient extends JsonHttpApi
 
     /**
      * Submit multiple jobs for translation.
-     * @param jobs job payload objects
+     * @param jobs TranslationJob payload objects
      * @param processAsGroup true iff the jobs should be processed as a group
      * @param shouldProcess true iff the jobs should be paid for and made available for translation
      * @return the response from the server
      * @throws MyGengoException
      */
-    public JSONObject postTranslationJobs(TranslationJobs jobs,
+    public JSONObject postTranslationJobs(Payloads jobs,
             boolean processAsGroup, boolean shouldProcess)
             throws MyGengoException
     {
@@ -192,24 +192,7 @@ public class MyGengoClient extends JsonHttpApi
             data.put("for_translator", commentsForTranslator);
             data.put("for_mygengo", commentsForMyGengo);
             data.put("public", feedbackIsPublic ? MYGENGO_TRUE : MYGENGO_FALSE);
-            switch (rating)
-            {
-            case ONE_STAR:
-                data.put("rating", "1");
-                break;
-            case TWO_STARS:
-                data.put("rating", "2");
-                break;
-            case THREE_STARS:
-                data.put("rating", "3");
-                break;
-            case FOUR_STARS:
-                data.put("rating", "4");
-                break;
-            case FIVE_STARS:
-                data.put("rating", "5");
-                break;
-            }
+            data.put("rating", rating.toString());
             return call(url, HttpMethod.PUT, data);
         } catch (JSONException x)
         {
@@ -461,24 +444,80 @@ public class MyGengoClient extends JsonHttpApi
 
     /**
      * Get a quote for translation jobs.
-     * @param jobs Translation job objects to be quoted for.
+     * @param jobs Translation job objects to be quoted for
      * @return the response from the server
      * @throws MyGengoException
      */
-    public JSONObject determineTranslationCost(TranslationJobs jobs) throws MyGengoException
+    public JSONObject determineTranslationCost(Payloads jobs) throws MyGengoException
     {
         try
         {
             String url = baseUrl + "translate/service/quote/";
-                JSONObject data = new JSONObject();
-                data.put("jobs", jobs.toJSONArray());
-                return call(url, HttpMethod.POST, data);
+            JSONObject data = new JSONObject();
+            data.put("jobs", jobs.toJSONArray());
+            return call(url, HttpMethod.POST, data);
         } catch (JSONException x)
         {
             throw new MyGengoException(x.getMessage(), x);
         }
     }
 
+    /**
+     * Update translation jobs
+     * @param action the update action to apply
+     * @param approvals the job payload objects
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    private JSONObject updateTranslationJobs(String action, Payloads approvals) throws MyGengoException
+    {
+        try
+        {
+            String url = baseUrl + "translate/jobs";
+            JSONObject data = new JSONObject();
+            data.put("action", action);
+            data.put("job_ids", approvals.toJSONArray());
+            return call(url, HttpMethod.PUT, data);
+        }
+        catch (JSONException x)
+        {
+            throw new MyGengoException(x.getMessage(), x);
+        }        
+    }
+
+    /**
+     * Revise translations.
+     * @param revisions Revision payload objects
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    public JSONObject reviseTranslationJobs(Payloads revisions) throws MyGengoException
+    {
+        return updateTranslationJobs("revise", revisions);       
+    }
+    
+    /**
+     * Reject translations.
+     * @param rejections Rejection payload objects
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    public JSONObject rejectTranslationJobs(Payloads rejections) throws MyGengoException
+    {
+        return updateTranslationJobs("reject", rejections);       
+    }
+    
+    /**
+     * Approve translations.
+     * @param approvals Approval payload objects
+     * @return the response from the server
+     * @throws MyGengoException
+     */
+    public JSONObject approveTranslationJobs(Payloads approvals) throws MyGengoException
+    {
+        return updateTranslationJobs("approve", approvals);
+    }
+    
     /**
      * Utility function.
      */
