@@ -5,5 +5,15 @@ public enum Tier
 	MACHINE,
 	STANDARD,
 	PRO,
-	ULTRA
+	ULTRA;
+	
+	public String toRequestString()
+	{
+	    return toString().toLowerCase();
+	}
+	
+	public String toString()
+	{
+	    return toRequestString();
+	}
 };
