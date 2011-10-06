@@ -130,12 +130,10 @@ public class MyGengoClient extends JsonHttpApi
      * Submit multiple jobs for translation.
      * @param jobs TranslationJob payload objects
      * @param processAsGroup true iff the jobs should be processed as a group
-     * @param shouldProcess true iff the jobs should be paid for and made available for translation
      * @return the response from the server
      * @throws MyGengoException
      */
-    public JSONObject postTranslationJobs(List<TranslationJob> jobs,
-            boolean processAsGroup, boolean shouldProcess)
+    public JSONObject postTranslationJobs(List<TranslationJob> jobs, boolean processAsGroup)
             throws MyGengoException
     {
         try
@@ -147,7 +145,6 @@ public class MyGengoClient extends JsonHttpApi
             List<Payload> p = (List)jobs; 
             data.put("jobs", (new Payloads(p)).toJSONArray());
             data.put("as_group", processAsGroup ? MYGENGO_TRUE : MYGENGO_FALSE);
-            data.put("process", shouldProcess ? MYGENGO_TRUE : MYGENGO_FALSE);
             return call(url, HttpMethod.POST, data);
         }
         catch (JSONException x)

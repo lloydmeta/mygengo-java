@@ -20,7 +20,7 @@ public class postTranslationJobs
         List<TranslationJob> jobList = new ArrayList<TranslationJob>();
         jobList.add(new TranslationJob("short story title", "This is a short story.","en","es",Tier.STANDARD));
         jobList.add(new TranslationJob("short story body", "There once was a man from Nantucket.","en","es",Tier.STANDARD));
-        JSONObject response = myGengo.postTranslationJobs(jobList, true, true);
+        JSONObject response = myGengo.postTranslationJobs(jobList, true);
     }
     
 }
