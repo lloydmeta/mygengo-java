@@ -29,4 +29,10 @@
 		<jar destfile="${lib.dir}/mygengo.jar" basedir="${bin.dir}"/>
 	</target>
 	
+	<target name="clean">
+		<delete dir="${bin.dir}"/>
+		<delete dir="${lib.dir}"/>
+		<delete dir="${json_java.dir}"/>
+	</target>
+	
 </project>
