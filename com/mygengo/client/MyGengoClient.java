@@ -265,8 +265,7 @@ public class MyGengoClient extends JsonHttpApi
      * @return the response from the server
      * @throws MyGengoException
      */
-    public JSONObject getTranslationJobs(List<Integer> ids)
-            throws MyGengoException
+    public JSONObject getTranslationJobs(List<Integer> ids) throws MyGengoException
     {
         String url = baseUrl + "translate/jobs/";
         url += join(ids, ",");
