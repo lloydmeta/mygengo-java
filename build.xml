@@ -22,7 +22,7 @@
 	
 	<target name="build" depends="get_json_java" description="Build .class files">
 		<mkdir dir="${bin.dir}"/>
-		<javac srcdir="${src.dir}" destdir="${bin.dir}" debug="on" excludes="com/mygengo/client/examples/**"/>
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" debug="on" excludes="com/mygengo/examples/**" includeantruntime="false"/>
 	</target>
 
 	<target name="jar" depends="build" description="Create .jar file">

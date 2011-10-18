@@ -1,4 +1,4 @@
-package com.mygengo.client.examples;
+package examples;
 
 import org.json.JSONObject;
 

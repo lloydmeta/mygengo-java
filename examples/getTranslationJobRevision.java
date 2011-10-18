@@ -1,17 +1,17 @@
-package com.mygengo.client.examples;
+package examples;
 
 import org.json.JSONObject;
 
 import com.mygengo.client.MyGengoClient;
 import com.mygengo.client.exceptions.MyGengoException;
 
-public class getTranslationJob
+public class getTranslationJobRevision
 {
 
-    public getTranslationJob() throws MyGengoException
+    public getTranslationJobRevision() throws MyGengoException
     {
         MyGengoClient myGengo = new MyGengoClient(ApiKeys.PUBLIC_KEY, ApiKeys.PRIVATE_KEY, true);
-        JSONObject response = myGengo.getTranslationJob(42);
+        JSONObject response = myGengo.getTranslationJobRevision(42, 1);
     }
     
 }
