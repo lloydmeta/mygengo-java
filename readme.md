@@ -6,6 +6,12 @@ somewhat tricky problem to solve. **[myGengo](http://mygengo.com/)** is a servic
 jobs. This is a Java interface to make using the API simpler (some would say incredibly easy). 
 
 
+Building
+---------------------------------------------------------------------------------------------------------------------------
+Simply run ant from the base directory after checking out. This will download dependencies, compile classes and package the
+library in lib/mygengo.jar. Add this jar file to your classpath to start working with the library.
+
+
 Dependencies
 ---------------------------------------------------------------------------------------------------------------------------
 The **[JSON in Java](http://json.org/java/)** package by Douglas Crockford.
