@@ -57,7 +57,7 @@ public class JsonHttpApi
     private String getTimestamp()
     {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MILLISECOND, -cal.get(Calendar.DST_OFFSET) - cal.get(Calendar.ZONE_OFFSET));
+        //cal.add(Calendar.MILLISECOND, -cal.get(Calendar.DST_OFFSET) - cal.get(Calendar.ZONE_OFFSET));
         return String.valueOf(cal.getTimeInMillis() / 1000);
     }
 	
