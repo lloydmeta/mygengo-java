@@ -381,7 +381,7 @@ public class JsonHttpApi
 			con.setRequestMethod(method.toString());
 			con.setDoInput(true);
 	        con.setUseCaches(false);
-	        con.setRequestProperty("User-Agent", "myGengo Java library v" + CLIENT_VERSION);
+	        con.setRequestProperty("User-Agent", "myGengo Java library; Version " + CLIENT_VERSION + "; http://mygengo.com/");
 	        con.setRequestProperty("accept", "application/json");
     	}
     	catch (Exception e)
