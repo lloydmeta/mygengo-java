@@ -1,5 +1,6 @@
 package examples;
 
+/* API key configuration file */
 public class ApiKeys
 {
     public static final String PUBLIC_KEY = "Q^c](Th^GQSu(gMtCRKB5jO$SjOA)zC(n1y8z~x7LQJ(0u~NPH8yt$O{-FMc[s}1";
