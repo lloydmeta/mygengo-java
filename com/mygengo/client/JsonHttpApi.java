@@ -2,9 +2,11 @@ package com.mygengo.client;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -245,8 +247,8 @@ public class JsonHttpApi
 		{
 			String length = Integer.toString(query.getBytes("UTF-8").length);
 	        con.setRequestProperty("Content-Length", length);
-	        DataOutputStream out = new DataOutputStream(con.getOutputStream());
-	        out.writeUTF(query);
+	        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(con.getOutputStream()));
+	        out.write(query);
 	        out.flush();
 	        out.close();
 	        BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream(), Charset.forName("UTF-8")));
