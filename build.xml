@@ -13,7 +13,7 @@
 		<get src="${json_java.url}" dest="${json_java.file}"/>
 		<unzip src="${json_java.file}" dest="${json_java.dir}">
 			<patternset>
-				<exclude name="**/Test.java"/>
+				<exclude name="**/Test*.java"/>
 			</patternset>
 			<mapper type="flatten"/>
 		</unzip>
@@ -33,6 +33,7 @@
 		<delete dir="${bin.dir}"/>
 		<delete dir="${lib.dir}"/>
 		<delete dir="${json_java.dir}"/>
+		<delete dir="org"/>
 	</target>
 	
 </project>
