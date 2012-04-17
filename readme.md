@@ -8,8 +8,28 @@ jobs. This is a Java interface to make using the API simpler (some would say inc
 
 Building
 ---------------------------------------------------------------------------------------------------------------------------
-Simply run ant from the base directory after checking out. This will download dependencies, compile classes and package the
-library in lib/mygengo.jar. Add this jar file to your classpath to start working with the library.
+
+Ant
+---
+Simply run `ant` from the base directory after checking out. This will download dependencies, compile classes and package the
+library in `lib/mygengo.jar`. Add this jar file to your classpath to start working with the library.
+
+Maven
+-----
+Run `mvn package` from the base directory. Package is built into the `target` directory.
+
+Eclipse
+-------
+Quick start:
+* Checkout code from github
+* File menu > New Java Project
+* Uncheck "Use default location"
+* Set project layout to Use project folder as root for sources and class files
+* Browse for location checked out code
+* Hit next
+* Hit finish
+* Build!
+
 
 
 Dependencies
