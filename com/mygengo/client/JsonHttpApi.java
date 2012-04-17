@@ -405,7 +405,7 @@ public class JsonHttpApi
 		switch (method)
 		{
 		case GET:
-			con.setRequestProperty("Content-Length", Integer.toString(queryString.length()));
+			con.setRequestProperty("Content-Length", "0");
 			return httpGet(con);
 		case PUT:
 			return httpPut(con, queryString);
